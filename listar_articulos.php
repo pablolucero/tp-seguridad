@@ -1,6 +1,9 @@
 <html>
 <head>
-    <title></title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/bootstrap.min.js"></script>
+
+    <title>Articulos</title>
 
     <style type="text/css">
         table {
@@ -16,11 +19,15 @@
         th {
             background: black;
             color: white;
+            text-align: center;
         }
     </style>
 
 </head>
 <body>
+<div class="container">
+
+<h2>Listado de articulos</h2>
 
 <table>
 
@@ -39,10 +46,10 @@
         $query = "SELECT * FROM articulos WHERE nombre LIKE '%$nombre%' ;";
         $result = mysqli_query($link, $query);
 
-        echo "La query ejecutada fue: <br>";
+        echo "La query ejecutada fue: <br><br>";
         echo '<pre>';
         echo $query;
-        echo '</pre>';
+        echo '</pre><br>';
 
         if (mysqli_num_rows($result) == 0) {
             echo "Sin resultados validos";
@@ -66,5 +73,6 @@
 <br>
 <button onclick="history.back()">Volver</button>
 
+</div>
 </body>
 </html>

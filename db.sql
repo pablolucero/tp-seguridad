@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
+-- version 4.6.5.2
+-- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 06-12-2016 a las 04:19:43
--- Versión del servidor: 10.1.16-MariaDB
--- Versión de PHP: 5.6.24
+-- Tiempo de generación: 22-03-2017 a las 16:02:03
+-- Versión del servidor: 5.7.17-log
+-- Versión de PHP: 5.6.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,10 +17,8 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `parcial-ti`
+-- Base de datos: `tp-seguridad`
 --
-CREATE DATABASE IF NOT EXISTS `parcial-ti` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `parcial-ti`;
 
 -- --------------------------------------------------------
 
@@ -28,7 +26,6 @@ USE `parcial-ti`;
 -- Estructura de tabla para la tabla `articulos`
 --
 
-DROP TABLE IF EXISTS `articulos`;
 CREATE TABLE `articulos` (
   `id` int(11) NOT NULL,
   `codigo` int(11) NOT NULL,
@@ -53,7 +50,6 @@ INSERT INTO `articulos` (`id`, `codigo`, `nombre`, `stock`) VALUES
 -- Estructura de tabla para la tabla `compras`
 --
 
-DROP TABLE IF EXISTS `compras`;
 CREATE TABLE `compras` (
   `id` int(11) NOT NULL,
   `id_articulo` int(11) NOT NULL,
@@ -67,6 +63,30 @@ CREATE TABLE `compras` (
 INSERT INTO `compras` (`id`, `id_articulo`, `cantidad`) VALUES
 (1, 1, 50),
 (2, 2, 100);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `users`
+--
+
+INSERT INTO `users` (`id`, `username`, `password`) VALUES
+(13, 'admin', 'qwerty'),
+(14, 'josegonzales', '12345'),
+(15, 'pepe99', 'q1w2e3'),
+(16, 'usuariodeprueba', 'holamanola'),
+(17, 'joedoe', 'password'),
+(18, 'natalianatalia', 'lalalala');
 
 --
 -- Índices para tablas volcadas
@@ -85,6 +105,12 @@ ALTER TABLE `compras`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indices de la tabla `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
@@ -98,6 +124,11 @@ ALTER TABLE `articulos`
 --
 ALTER TABLE `compras`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT de la tabla `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

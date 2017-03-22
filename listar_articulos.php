@@ -39,7 +39,7 @@
 
     if ($_POST['nombre']) {
 
-        $link = mysqli_connect("localhost", "root", "root", "parcial-ti") or die ("Problemas en la conexion " . mysqli_error($link));
+        $link = mysqli_connect("localhost", "root", "root", "tp-seguridad") or die ("Problemas en la conexion " . mysqli_error($link));
 
         $nombre = $_POST['nombre'];
 
@@ -71,7 +71,7 @@
 </table>
 
 <br>
-<button onclick="history.back()">Volver</button>
+<button onclick="history.back()" class="btn btn-secondary">Volver</button>
 
 </div>
 </body>

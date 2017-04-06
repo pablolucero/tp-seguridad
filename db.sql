@@ -3,8 +3,8 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 22-03-2017 a las 16:41:29
--- Versión del servidor: 5.7.17-log
+-- Tiempo de generación: 06-04-2017 a las 23:06:13
+-- Versión del servidor: 10.1.21-MariaDB
 -- Versión de PHP: 5.6.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -19,6 +19,8 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `tp-seguridad`
 --
+CREATE DATABASE IF NOT EXISTS `tp-seguridad` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `tp-seguridad`;
 
 -- --------------------------------------------------------
 
@@ -26,6 +28,7 @@ SET time_zone = "+00:00";
 -- Estructura de tabla para la tabla `articulos`
 --
 
+DROP TABLE IF EXISTS `articulos`;
 CREATE TABLE `articulos` (
   `id` int(11) NOT NULL,
   `codigo` int(11) NOT NULL,
@@ -50,6 +53,7 @@ INSERT INTO `articulos` (`id`, `codigo`, `nombre`, `stock`) VALUES
 -- Estructura de tabla para la tabla `compras`
 --
 
+DROP TABLE IF EXISTS `compras`;
 CREATE TABLE `compras` (
   `id` int(11) NOT NULL,
   `id_articulo` int(11) NOT NULL,
@@ -70,6 +74,7 @@ INSERT INTO `compras` (`id`, `id_articulo`, `cantidad`) VALUES
 -- Estructura de tabla para la tabla `usuarios`
 --
 
+DROP TABLE IF EXISTS `usuarios`;
 CREATE TABLE `usuarios` (
   `id` int(11) NOT NULL,
   `username` varchar(255) NOT NULL,

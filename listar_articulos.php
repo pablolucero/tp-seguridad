@@ -8,8 +8,10 @@
     <style type="text/css">
         table {
             border-collapse: collapse;
-            width: 30%;
+            width: 90%;
             text-align: center;
+            margin-left:auto; 
+            margin-right:auto; 
         }
 
         table, th, td {

@@ -10,7 +10,7 @@
     
     <form method="post" action="listar_articulos.php">
         <div class="form-group col-lg-8">
-            <h3>TP Seguridad - USAL 2017</h3>
+            <h3>TP Seguridad Informatica - USAL - Demo SQL Injection</h3>
             <h2>Buscar articulos</h2>
             <label for="nombre">Nombre:</label>
             <div class="input-group">

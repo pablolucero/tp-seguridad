@@ -41,10 +41,12 @@
 
     if ($_POST['nombre']) {
 
-        $link = mysqli_connect("localhost", "root", "root", "tp-seguridad") or die ("Problemas en la conexion " . mysqli_error($link));
+        $link = mysqli_connect("localhost", "root", "root", "tp-seguridad") 
+        or die ("Problemas en la conexion " . mysqli_error($link));
 
         $nombre = $_POST['nombre'];
-
+        // SQL Injection: descomentar esto para escapar el input y prevenir el ataque
+        // $nombre = $link->real_escape_string($nombre);
         $query = "SELECT * FROM articulos WHERE nombre LIKE '%$nombre%' ;";
         $result = mysqli_query($link, $query);
 

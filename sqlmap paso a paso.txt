@@ -1,0 +1,3 @@
+sqlmap paso a paso
+
+cd "C:\Users\plucero\Google Drive\USAL\4to\Seg informatica\capital\2017\tp seguridad\sql injection\sqlmap"

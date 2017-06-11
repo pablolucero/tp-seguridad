@@ -3,7 +3,7 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <script src="js/bootstrap.min.js"></script>
 
-    <title>Articulos</title>
+    <title>Articulo</title>
 
     <style type="text/css">
         table {
@@ -29,25 +29,23 @@
 <body>
 <div class="container">
 
-<h2>Listado de articulos</h2>
+<h2>Detalle de articulo</h2>
 
 <table>
 
 <?php
 
-    if (!$_POST['nombre']) {
+    if (!$_GET['id']) {
         echo "Sin resultados validos";
     }
 
-    if ($_POST['nombre']) {
+    if ($_GET['id']) {
 
-        $link = mysqli_connect("localhost", "root", "root", "tp-seguridad") 
-        or die ("Problemas en la conexion " . mysqli_error($link));
+        $link = mysqli_connect("localhost", "root", "root", "tp-seguridad") or die ("Problemas en la conexion " . mysqli_error($link));
 
-        $nombre = $_POST['nombre'];
-        // SQL Injection: descomentar esto para escapar el input y prevenir el ataque
-        // $nombre = $link->real_escape_string($nombre);
-        $query = "SELECT * FROM articulos WHERE nombre LIKE '%$nombre%' ;";
+        $id = $_GET['id'];
+
+        $query = "SELECT * FROM articulos WHERE id = $id ;";
         $result = mysqli_query($link, $query);
 
         echo "La query ejecutada fue: <br><br>";
@@ -63,11 +61,11 @@
             echo "<tr>";
             echo "<th>Articulo</th>";
             echo "<th>Nombre</th>";
-            echo "<th>Ver detalle</th>";
+            echo "<th>Stock</th>";
             echo "</tr>";
 
             while ($row = mysqli_fetch_array($result)) {
-                echo "<tr><td>" . $row["codigo"] . "</td><td>" . $row["nombre"] . "</td><td>" . "<a href='detalle_articulo.php?id=" . $row["id"] . "'>Ver</a>" . "</td></tr>";
+                echo "<tr><td>" . $row["codigo"] . "</td><td>" . $row["nombre"] . "</td><td>" . $row["stock"] . "</td></tr>";
             }
         }
     }

